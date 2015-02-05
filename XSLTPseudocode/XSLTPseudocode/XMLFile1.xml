@@ -1,0 +1,61 @@
+﻿<?xml version="1.0"?>
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/TR/WD-xsl">
+
+  <xsl:template name="AnotherName" match="TITLE1">
+    <SPAN STYLE="display: 'block'; font-family: 'arial'; color: '#000080'; font-weight: '400'; font-size: '20'; margin-top: '12pt'">
+      <xsl:value-of />
+    </SPAN>
+    <BR/>
+  </xsl:template>
+  
+  <xsl:template match="/">
+    <xsl:apply-templates select="LANGLIST/TITLE" />
+    <xsl:apply-templates select="LANGLIST/TITLE1" />
+    <xsl:apply-templates select="LANGLIST/LIST1" />
+    <xsl:apply-templates select="LANGLIST/TITLE2" />
+    <xsl:apply-templates select="LANGLIST/LIST2" />
+  </xsl:template>
+
+  <xsl:template name="SomeName" match="TITLE">
+    <SPAN STYLE="display: 'block'; font-family: 'arial'; color: '#008000'; font-weight: '600'; font-size: '22'; margin-top: '12pt'; text-align: 'center'">
+      <xsl:value-of />
+    </SPAN>
+    <BR/>
+  </xsl:template>
+
+  <xsl:template name="AnotherName" match="TITLE1">
+    <SPAN STYLE="display: 'block'; font-family: 'arial'; color: '#000080'; font-weight: '400'; font-size: '20'; margin-top: '12pt'">
+      <xsl:value-of />
+    </SPAN>
+    <BR/>
+  </xsl:template>
+
+  <xsl:template match="LIST1">
+    <UL style="display: 'list-item'; list-style-image: url('bullet8.gif'); font-family: 'arial'; color: '#000000'; font-weight: '400';  margin-left: '15pt'; margin-top: '12pt'; font-size: '18'">
+      <xsl:for-each select="LANGUAGES">
+        <LI style="display: 'list-item'; list-style-type: 'square'; list-style-image: url('bullet8.gif'); font-family: 'arial'; color: '#ff0000'; font-weight: '300';  margin-left: '15pt'; margin-top: '12pt'; font-size: '16'">
+          <xsl:value-of />
+        </LI>
+      </xsl:for-each>
+    </UL>
+  </xsl:template>
+
+  <xsl:template match="TITLE2">
+    <SPAN STYLE="display: 'block'; font-family: 'arial'; color: '#000080'; font-weight: '400'; font-size: '20'; margin-top: '12pt'">
+      <xsl:value-of />
+    </SPAN>
+    <BR/>
+  </xsl:template>
+
+  <xsl:template match="LIST2">
+    <UL style="display: 'list-item'; list-style-image: url('bullet8.gif'); font-family: 'arial'; color: '#000000'; font-weight: '400';  margin-left: '15pt'; margin-top: '12pt'; font-size: '18'">
+      <xsl:for-each select="OTHER">
+        <LI style="display: 'list-item'; list-style-type: 'square'; list-style-image: url('bullet8.gif'); font-family: 'arial'; color: '#0000ff'; font-weight: '200';  margin-left: '15pt'; margin-top: '12pt'; font-size: '14'">
+          <xsl:value-of select="."/>
+        </LI>
+      </xsl:for-each>
+    </UL>
+  </xsl:template>
+
+</xsl:stylesheet>
