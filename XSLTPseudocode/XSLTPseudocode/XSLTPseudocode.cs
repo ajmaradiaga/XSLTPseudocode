@@ -72,12 +72,12 @@ namespace XSLTPseudocode
 
             String tabs = getTabs(numTabs);
 
-            retVal += tabs;
-
             String nodeText = "";
             String nextSib = "";
             XmlNode child = node.FirstChild;
             String nodeName = node.Name.ToLower().Replace(_prefix, "");
+
+            retVal += (!_nextSiblingSkip.Contains(nodeName)) ? tabs : "";
 
             if (child != null)
             {
@@ -126,8 +126,11 @@ namespace XSLTPseudocode
                     {
                         retVal += node.Name + " " + processAttributes(node, nodeName) +" -> ";
                     }
+                    //TODO: Change it to FirstChild instead of Next Sibling.
                     if (!_nextSiblingSkip.Contains(nextSib))
                         retVal += nodeText + Environment.NewLine;
+                    else
+                        retVal += nodeText;
                     break;
             }
 
